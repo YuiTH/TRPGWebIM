@@ -1,3 +1,8 @@
-<p>
-  message-input-box works!
-</p>
+<div>
+  <button (click)="rollDice()">Roll Dice</button>
+  <input [(ngModel)]="TextMessage" #box (keyup.enter)="enterSubmit()">
+  <button (click)="submit()">
+    submit
+  </button>
+</div>
+<p>{{TextMessage}}</p>
