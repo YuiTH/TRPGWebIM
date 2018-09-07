@@ -1,8 +1,15 @@
 <div>
-  <button (click)="rollDice()">Roll Dice</button>
-  <input [(ngModel)]="TextMessage" #box (keyup.enter)="enterSubmit()">
-  <button (click)="submit()">
-    submit
-  </button>
+  <form (ngSubmit)="submit()" #msgBoxForm="ngForm">
+    <button (click)="rollDice()">Roll Dice</button>
+    <input type="text"
+           name="msgInputBox"
+           [(ngModel)]="TextMessage"
+           required
+           #box (keyup.enter)="enterSubmit()"
+           placeholder="Message" >
+    <button type="submit" class="btn btn-success" [disabled]="!msgBoxForm.form.valid">
+      submit
+    </button>
+  </form>
 </div>
 <p>{{TextMessage}}</p>
