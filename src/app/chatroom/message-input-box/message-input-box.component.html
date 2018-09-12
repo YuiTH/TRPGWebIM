@@ -1,15 +1,25 @@
 <div>
   <form (ngSubmit)="submit()" #msgBoxForm="ngForm">
-    <button (click)="rollDice()">Roll Dice</button>
-    <input type="text"
+    <button mat-button (click)="rollDice()">Roll Dice</button>
+    <input
+           type="text"
            name="msgInputBox"
            [(ngModel)]="TextMessage"
            required
            #box (keyup.enter)="enterSubmit()"
            placeholder="Message" >
-    <button type="submit" class="btn btn-success" [disabled]="!msgBoxForm.form.valid">
+    <button
+      mat-button type="submit"
+      class="btn btn-success"
+      [disabled]="!msgBoxForm.form.valid">
       submit
     </button>
   </form>
+</div>
+<div>
+  <mat-form-field>
+    <!--<div><input matInput type="text"placeholder="matInputTest"></div>-->
+    <div><textarea matInput type="text"placeholder="MatAreaTest"></textarea></div>
+  </mat-form-field>
 </div>
 <p>{{TextMessage}}</p>
