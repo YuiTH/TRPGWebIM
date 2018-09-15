@@ -1,21 +1,32 @@
 <div>
-  <form (ngSubmit)="submit()" #msgBoxForm="ngForm">
-    <button mat-button (click)="rollDice()">Roll Dice</button>
-    <input
-           type="text"
-           name="msgInputBox"
-           [(ngModel)]="TextMessage"
-           required
-           #box (keyup.enter)="enterSubmit()"
-           placeholder="Message" >
-    <button
-      mat-button type="submit"
-      class="btn btn-success"
-      [disabled]="!msgBoxForm.form.valid">
-      submit
+  <form (ngSubmit)="mySubmit()" #msgBoxForm="ngForm">
+    <button mat-raised-button color="accent" type="button" (click)="rollDice()">
+      <i class="material-icons">code</i>
     </button>
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Message</mat-label>
+      <input matInput
+             type="text"
+             name="msgInputBox"
+             required
+             [(ngModel)]="TextMessage"
+             #box (keyup.enter)="enterSubmit()"
+             placeholder="PlaceHolder" >
+      <button
+        matSuffix
+        mat-fab
+        color="primary"
+        type="submit"
+        class="btn btn-success"
+        [disabled]="!msgBoxForm.form.valid">
+        <i class="material-icons">keyboard_return</i>
+      </button>
+    </mat-form-field>
   </form>
 </div>
+<button mat-button (click)="rollDice()">
+  <i class="material-icons">code</i>
+</button>
 <div>
   <mat-form-field>
     <!--<div><input matInput type="text"placeholder="matInputTest"></div>-->
