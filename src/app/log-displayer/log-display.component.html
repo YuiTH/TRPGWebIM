@@ -1,0 +1,6 @@
+<div *ngIf="logger.log.length">
+  <ol>
+    <li *ngFor="let log of logger.log">{{log}}</li>
+  </ol>
+  <button mat-flat-button class="clear" (click)="clear()">Clear</button>
+</div>
