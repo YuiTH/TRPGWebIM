@@ -13,7 +13,6 @@ export class LoggerService {
     this.log.push(log);
   }
   clear() {
-    console.log('logger.clear' + this.log);
     this.log = [];
   }
 }
