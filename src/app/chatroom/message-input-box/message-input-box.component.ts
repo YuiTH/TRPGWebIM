@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LoggerService} from '../../logger.service';
+import {MessageService} from '../message.service';
+import {UserService} from '../../user.service';
 
 @Component({
   selector: 'app-message-input-box',
@@ -8,22 +9,19 @@ import {LoggerService} from '../../logger.service';
 })
 export class MessageInputBoxComponent implements OnInit {
   TextMessage = '';
-  constructor(private logger: LoggerService) { }
-  rollDice() {
-    let max = 100;
-    let min = 1;
-    let add = 0;
+  InputBoxLabel = 'Message';
+  constructor(private messageService: MessageService, private userService: UserService) {
+    this.InputBoxLabel = userService.myUser.name + ':';
+  }
+  rollDice(max: number= 100, min: number= 1, add: number = 0) {
     const rollResult = Math.round(Math.random() * (max - min) + min + add);
     console.log('roll1d100 ' + rollResult);
-    this.logger.add('roll1d100 ' + rollResult);
+    this.messageService.send('roll1d100 ' + rollResult);
   }
   mySubmit() {
     console.log('mySubmit ' + this.TextMessage);
-    this.logger.add('mySubmit ' + this.TextMessage);
-  }
-  enterSubmit() {
-    console.log('enterSubmit' + this.TextMessage);
-    this.logger.add('enterSubmit ' + this.TextMessage);
+    this.messageService.send(this.TextMessage);
+    this.TextMessage = '';
   }
   ngOnInit() {
   }

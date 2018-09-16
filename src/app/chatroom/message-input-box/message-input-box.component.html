@@ -1,17 +1,16 @@
 <div>
-  <form (ngSubmit)="mySubmit()" #msgBoxForm="ngForm">
+  <form class="message-box" (ngSubmit)="mySubmit()" autocomplete="off" #msgBoxForm="ngForm">
     <button mat-raised-button color="accent" type="button" (click)="rollDice()">
       <i class="material-icons">code</i>
     </button>
     <mat-form-field appearance="outline" hideRequiredMarker>
-      <mat-label>Message</mat-label>
+      <mat-label>{{InputBoxLabel}}</mat-label>
       <input matInput
              type="text"
              name="msgInputBox"
              required
              [(ngModel)]="TextMessage"
-             #box (keyup.enter)="enterSubmit()"
-             placeholder="PlaceHolder" >
+             placeholder="Press enter to send" >
       <button
         matSuffix
         mat-fab
@@ -30,7 +29,7 @@
 <div>
   <mat-form-field>
     <!--<div><input matInput type="text"placeholder="matInputTest"></div>-->
-    <div><textarea matInput type="text"placeholder="MatAreaTest"></textarea></div>
+    <div><textarea matInput type="text" placeholder="MatAreaTest"></textarea></div>
   </mat-form-field>
 </div>
 <p>{{TextMessage}}</p>
