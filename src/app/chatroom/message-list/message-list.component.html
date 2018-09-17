@@ -1,3 +1,7 @@
-<p>
-  message-list works!
-</p>
+<mat-list>
+  <mat-list-item *ngFor="let message of getMessages()">
+    <h3>{{message.Publisher.name+':'}}</h3>
+    <h4>{{message.MessageText}}</h4>
+    <div>{{'('+message.Date+')'}}</div>
+  </mat-list-item>
+</mat-list>

@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MessageInputBoxComponent } from './message-input-box/message-input-box.component';
 import {FormsModule} from '@angular/forms';
-import {MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule} from '@angular/material';
 import { MessageListComponent } from './message-list/message-list.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 @NgModule({
   imports: [
@@ -12,10 +13,11 @@ import { MessageListComponent } from './message-list/message-list.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatListModule
   ],
   exports: [
-    MessageInputBoxComponent,
+    ChatroomComponent,
   ],
-  declarations: [MessageInputBoxComponent, MessageListComponent]
+  declarations: [MessageInputBoxComponent, MessageListComponent, ChatroomComponent]
 })
 export class ChatroomModule { }
