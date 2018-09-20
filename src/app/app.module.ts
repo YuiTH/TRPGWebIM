@@ -6,7 +6,7 @@ import {ChatroomModule} from './chatroom/chatroom.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogDisplayComponent } from './log-displayer/log-display.component';
 import {MatButtonModule} from '@angular/material';
-import {Route, RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app-routing/app-routing.module';
 
 
 @NgModule({
@@ -20,11 +20,7 @@ import {Route, RouterModule} from '@angular/router';
     ChatroomModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
-    )
-
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
